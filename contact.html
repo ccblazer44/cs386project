@@ -1,0 +1,120 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="master.css">
+
+
+<script type="text/javascript">
+
+      function validate()
+      {
+      
+         if( document.myForm.yourname.value == "" )
+         {
+            alert( "Please provide your name!" );
+            document.myForm.yourname.focus() ;
+            return false;
+         }
+
+         if( document.myForm.subject.value == "" )
+         {
+            alert( "Please provide a subject." );
+            document.myForm.subject.focus() ;
+            return false;
+         }
+         
+         if( document.myForm.email.value == "" )
+         {
+            alert( "Please provide your Email!" );
+            document.myForm.email.focus() ;
+            return false;
+         }
+
+         var emailID = document.myForm.email.value;
+         atpos = emailID.indexOf("@");
+         dotpos = emailID.lastIndexOf(".");
+         
+         if (atpos < 1 || ( dotpos - atpos < 2 )) 
+         {
+            alert("Please enter correct email ID")
+            document.myForm.email.focus() ;
+            return false;
+         }
+
+         if( document.myForm.comments.value == "" )
+         {
+            alert( "Please provide your comments." );
+            document.myForm.comments.focus() ;
+            return false;
+         }
+         
+         
+         return( true );
+      }
+   
+</script>
+
+
+</head>
+<body>
+<div id="page-container">
+
+	<div id="main-nav">
+		<a href="index.html">MAIN PAGE</a> -- <a href="about.html">ABOUT ME</a></li> -- <a href="contact.html">CONTACT US</a> -- <a href="pro7/login.php">LOG IN</a> -- <a href="pro8/index.php">MESSAGES</a>
+	</div>
+
+	<div id="header">
+		<h1><img src="images/name.png"
+				width="236" height="36" alt="Chris Blazer" border="0" /></h1>
+	</div>
+
+	<div id="sidebar-a">
+
+ 	   Yay a sidebar!
+
+	</div>
+
+	<div id="content">
+
+		<p>Required fields are <b>bold</b></p>
+
+			<form action="contact.php" method="post" name="myForm" onsubmit="return(validate());">
+			<p><b>Your Name:</b> <input type="text" name="yourname" /><br />
+			<b>Subject:</b> <input type="text" name="subject" /><br />
+			<b>E-mail:</b> <input type="text" name="email" /><br />
+			Website: <input type="text" name="website"></p>
+
+			<p>Type:  
+			<input type="radio" name="type" value="Question" checked="checked" /> Question
+			<input type="radio" name="type" value="Comment" /> Comment
+			<input type="radio" name="type" value="Urgent" /> Urgent</p>
+
+			<p>How did you find us?
+			<select name="how">
+			<option value=""> -- Please select -- </option>
+			<option>Search</option>
+			<option>Link</option>
+			<option>IRL</option>
+			<option>NAU</option>
+			<option>Other</option>
+			</select>
+
+			<p><b>Your comments:</b><br />
+			<textarea name="comments" rows="10" cols="40"></textarea></p>
+
+			<p><input type="submit" value="Submit"></p>
+
+			<p> </p>
+			</form>
+
+	</div>
+
+	<div id="footer">
+		<div id="altnav">
+			<a href="index.html">Main Page</a> - <a href="about.html">About Me</a> - <a href="contact.html">Contact Us</a> - <a href="pro7/login.php">Log In</a> - <a href="pro8/index.php">Messages</a>
+		</div>
+		Copyright @ Chris Blazer
+	</div>
+
+</div>
+</body>
+</html>
