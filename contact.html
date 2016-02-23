@@ -1,13 +1,28 @@
+<!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="master.css">
-
-
+  <title>Chitchat</title>
+	<link rel="stylesheet" href="./styles/style.css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<script>
+  jQuery(document).ready(function() {
+    jQuery('.toggle-nav').click(function(e) {
+        jQuery(this).toggleClass('active');
+        jQuery('#main-nav ul').toggleClass('active');
+        e.preventDefault();
+    });
+  });
+</script>
 <script type="text/javascript">
 
       function validate()
       {
-      
+
          if( document.myForm.yourname.value == "" )
          {
             alert( "Please provide your name!" );
@@ -21,7 +36,7 @@
             document.myForm.subject.focus() ;
             return false;
          }
-         
+
          if( document.myForm.email.value == "" )
          {
             alert( "Please provide your Email!" );
@@ -32,8 +47,8 @@
          var emailID = document.myForm.email.value;
          atpos = emailID.indexOf("@");
          dotpos = emailID.lastIndexOf(".");
-         
-         if (atpos < 1 || ( dotpos - atpos < 2 )) 
+
+         if (atpos < 1 || ( dotpos - atpos < 2 ))
          {
             alert("Please enter correct email ID")
             document.myForm.email.focus() ;
@@ -46,65 +61,77 @@
             document.myForm.comments.focus() ;
             return false;
          }
-         
-         
+
+
          return( true );
       }
-   
+
 </script>
-
-
 </head>
 <body>
-<div id="page-container">
+  <div id="main-nav">
+    <div id="brand-logo">
+      <img src="./assets/logo-white.png" />
+    </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="active-page"><a href="contact.html">Support</a></li>
+      <li><a href="contact.html">Explore</a></li>
+      <li class="register"><a href="users/index.php">Sign Up</a></li>
+      <li class="login"><a href="users/index.php">Login</a></li>
+    </ul>
+    <a class="toggle-nav" href="#">&#9776;</a>
+  </div>
 
-	<div id="main-nav">
-		<a href="index.html">MAIN PAGE</a> -- <a href="about.html">ABOUT ME</a></li> -- <a href="contact.html">CONTACT US</a> -- <a href="users/index.php">USER</a>
-	</div>
-	
+  <div id="landing" class="container-full">
+		<div class="splash-about">
+			<div class="splash-about-box">
+        <p>Required fields are <b>bold</b></p>
 
-	<div id="content">
+    			<form action="contact.php" method="post" name="myForm" onsubmit="return(validate());">
+    			<p><b>Your Name:</b> <input type="text" name="yourname" /><br />
+    			<b>Subject:</b> <input type="text" name="subject" /><br />
+    			<b>E-mail:</b> <input type="text" name="email" /><br />
+    			Website: <input type="text" name="website"></p>
 
-		<p>Required fields are <b>bold</b></p>
+    			<p>Type:
+    			<input type="radio" name="type" value="Question" checked="checked" /> Question
+    			<input type="radio" name="type" value="Comment" /> Comment
+    			<input type="radio" name="type" value="Urgent" /> Urgent</p>
 
-			<form action="contact.php" method="post" name="myForm" onsubmit="return(validate());">
-			<p><b>Your Name:</b> <input type="text" name="yourname" /><br />
-			<b>Subject:</b> <input type="text" name="subject" /><br />
-			<b>E-mail:</b> <input type="text" name="email" /><br />
-			Website: <input type="text" name="website"></p>
+    			<p>How did you find us?
+    			<select name="how">
+    			<option value=""> -- Please select -- </option>
+    			<option>Search</option>
+    			<option>Link</option>
+    			<option>IRL</option>
+    			<option>NAU</option>
+    			<option>Other</option>
+    			</select>
 
-			<p>Type:  
-			<input type="radio" name="type" value="Question" checked="checked" /> Question
-			<input type="radio" name="type" value="Comment" /> Comment
-			<input type="radio" name="type" value="Urgent" /> Urgent</p>
+    			<p><b>Your comments:</b><br />
+    			<textarea name="comments" rows="10" cols="40"></textarea></p>
 
-			<p>How did you find us?
-			<select name="how">
-			<option value=""> -- Please select -- </option>
-			<option>Search</option>
-			<option>Link</option>
-			<option>IRL</option>
-			<option>NAU</option>
-			<option>Other</option>
-			</select>
-
-			<p><b>Your comments:</b><br />
-			<textarea name="comments" rows="10" cols="40"></textarea></p>
-
-			<p><input type="submit" value="Submit"></p>
-
-			<p> </p>
-			</form>
-
-	</div>
-
-	<div id="footer">
-		<div id="altnav">
-			<a href="index.html">Main Page</a> - <a href="about.html">About Us</a> - <a href="contact.html">Contact Us</a> - <a href="users/index.php">User</a>
+    			<p><input type="submit" value="Submit"></p>
+    			</form>
+			</div>
 		</div>
-		Copyright @ Chris Blazer
 	</div>
 
-</div>
+  <div id="footer">
+		<div id="footer-top">
+			<ul id="footer-nav">
+				<li><a href="#">About</a></li>
+				<li><a href="#">Contact</a></li>
+				<li><a href="#">Terms of Service</a></li>
+				<li><a href="#">Privacy Policy</a></li>
+			</ul>
+		</div>
+		<div id="footer-bottom">
+			<p class="text-center"> &copy; Copyright 2016</p>
+		</div>
+	</div>
+<script src="http://localhost:35729/livereload.js" charset="utf-8"></script>
 </body>
 </html>
