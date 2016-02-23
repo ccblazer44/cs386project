@@ -7,7 +7,7 @@ html, body {
 
 @media (max-width: 650px) {
 
-	#brand-logo {
+	#brand-logo img {
 		display: block;
 		margin: 0 auto;
 	}
