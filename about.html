@@ -6,8 +6,20 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Cardo' rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<script>
+	jQuery(document).ready(function() {
+		jQuery('.toggle-nav').click(function(e) {
+				console.log("Testing");
+				jQuery(this).toggleClass('active');
+				jQuery('#main-nav ul').toggleClass('active');
+				e.preventDefault();
+		});
+	});
+	</script>
 </head>
 <body>
 
@@ -17,12 +29,13 @@
 		</div>
 		<ul>
 			<li><a href="index.html">Home</a></li>
-			<li class="active"><a href="about.html">About</a></li>
+			<li class="active-page"><a href="about.html">About</a></li>
 			<li><a href="contact.html">Support</a></li>
 			<li><a href="contact.html">Explore</a></li>
 			<li class="register"><a href="users/index.php">Sign Up</a></li>
 			<li class="login"><a href="users/index.php">Login</a></li>
 		</ul>
+		<a class="toggle-nav" href="#">&#9776;</a>
 	</div>
 
 	<div id="landing" class="container-full">
