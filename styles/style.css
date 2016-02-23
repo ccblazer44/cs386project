@@ -182,9 +182,9 @@ html, body {
 		display: block;
 		margin: 0 auto;
 	}
-	
+
 	#main-nav > ul > li:nth-child(-n+2){
-		display: list-item;;
+		display: block;
 	}
 
 	#main-nav ul.active {
