@@ -5,6 +5,11 @@ html, body {
 	width: 100%;
 }
 
+body{
+	background: url(../assets/cell-phone-bg.png) no-repeat center center fixed;
+	background-size: cover;
+}
+
 @media (max-width: 650px) {
 
 	#brand-logo img {
@@ -23,9 +28,11 @@ html, body {
 }
 
 #main-nav {
-	border-top: 5px solid black;
+	border-top: 5px solid white;
 	width: 100%;
+	margin: 0 auto;
 	height: 70px;
+	line-height: 70px;
 }
 
 #main-nav ul {
@@ -33,24 +40,23 @@ html, body {
 }
 
 #main-nav ul li {
-	padding: 0 15px;
-	line-height: 70px;
+	padding: 0 7px;
 	display: inline-block;
 }
 
 #main-nav ul li a {
-	color: black;
+	color: white;
+	padding: 10px;
+}
+
+#main-nav ul li a:hover {
+	background: rgba(255, 255, 255, 0.25);
+	text-decoration: none;
+	padding: 8px;
+	border: 2px solid white;
+	border-radius: 5px;
 }
 
 .container-full {
 	height: 100%;
-}
-
-.background {
-	margin: 0;
-	padding: 0;
-	height: 100%;
-	width: 100%;
-	background: url(../assets/cell-phone-bg.png) no-repeat center center fixed;
-	background-size: cover;
 }
