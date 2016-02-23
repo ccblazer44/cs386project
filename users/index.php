@@ -11,7 +11,7 @@ include('config.php')
 <div id="page-container">
 
     <div id="main-nav">
-        <a href="../index.html">MAIN PAGE</a> -- <a href="../about.html">ABOUT ME</a></li> -- <a href="../contact.html">CONTACT US</a> -- <a href="../pro7/login.php">LOG IN</a> -- <a href="index.php">MESSAGES</a>
+        <a href="../index.html">MAIN PAGE</a> -- <a href="../about.html">ABOUT ME</a></li> -- <a href="../contact.html">CONTACT US</a> -- <a href="../users/login.php">LOG IN</a> -- <a href="index.php">MESSAGES</a>
     </div>
 
     <div id="header">
