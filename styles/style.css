@@ -227,6 +227,7 @@ html, body {
 		margin:5px 0px 5px 0px;
 		float:none;
 		display:block;
+		text-align: center;
 	}
 
 	#main-nav a {
