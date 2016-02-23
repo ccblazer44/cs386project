@@ -259,6 +259,18 @@ html, body {
 		color:white;
 		text-decoration: none;
 	}
+	.toggle-nav:active {
+		color: white;
+		text-decoration: none;
+	}
+	.toggle-nav:focus {
+		color: white;
+		text-decoration: none;
+	}
+	.toggle-nav:visited {
+		color: white;
+		text-decoration: none;
+	}
 
 	#footer {
 		height: 150px;
