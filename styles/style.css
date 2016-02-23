@@ -37,3 +37,7 @@ html, body {
 	line-height: 70px;
 	display: inline-block;
 }
+
+#main-nav ul li a {
+	color: black;
+}
