@@ -5,8 +5,9 @@ html, body {
 	width: 100%;
 }
 
-body{
-	background: url(../assets/cell-phone-bg.png) no-repeat center center fixed;
+#landing {
+	border-top: 5px solid white;
+	background: url(../assets/cell-phone-bg.png) no-repeat center center;
 	background-size: cover;
 }
 
@@ -21,6 +22,24 @@ body{
 	top: 50%;
 	height:50px;
 	margin-top:-25px;
+}
+
+.splash-about {
+	margin-top: 70px;
+	width: 100%;
+	position: absolute;
+	height:100%;
+}
+
+.splash-about-box {
+	width: 100%;
+	border-radius: 5px;
+	padding: 20px;
+	max-width: 500px;
+	background: white;
+	height: 500px;
+	margin: 25% auto;
+	font-family: 'Montserrat', sans-serif;
 }
 
 #brand-logo {
@@ -51,7 +70,15 @@ body{
 	font-family: 'Montserrat', sans-serif;
 }
 
-#main-nav ul li a:hover {
+.active {
+	border-bottom: 2px solid white;
+}
+
+.active a:hover {
+	text-decoration: none;
+}
+
+#main-nav ul li:not(.active) a:hover {
 	background: rgba(255, 255, 255, 0.25);
 	text-decoration: none;
 	padding: 8px;
@@ -74,9 +101,72 @@ body{
 	border-radius: 5px;
 }
 
-.container-full {
+#footer {
+	width: 100%;
+	height: 200px;
+	background-color: black;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	position: absolute;
+}
+
+#footer-top {
+	height: 150px;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#footer-bottom {
+	background-color: #222;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	bottom:0;
+}
+
+#footer-bottom > p{
+	color: white;
+	line-height: 50px;
+}
+
+#footer-nav {
+	text-align: center;
+	width: 100%;
+	margin: 0 auto;
+}
+
+#footer-nav li {
+	line-height: 150px;
+	padding: 0 25px;
+	display: inline-block;
+}
+
+#footer-nav li a{
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+}
+
+#footer-nav li a:hover{
+	text-decoration: none;
+}
+
+.container-full{
 	height: 100%;
 	margin-top: -70px;
+}
+
+@media (max-width: 750px) {
+	#main-nav > ul > li:nth-child(1){
+		display: none;
+	}
+}
+
+@media (max-width: 670px) {
+	#main-nav > ul > li:nth-child(2){
+		display: none;
+	}
 }
 
 @media (max-width: 650px) {
@@ -88,6 +178,35 @@ body{
 
 	#main-nav ul {
 		display: none;
+	}
+
+	.splash > h2 {
+		font-size: 20px;
+	}
+
+	.splash-about-box {
+		margin-top: 0;
+		border-radius: 0;
+		height: 100%;
+	}
+
+	#footer {
+		height: 150px;
+	}
+
+	#footer-top {
+		height: 100px;
+	}
+
+	#footer-nav {
+		width: 100%;
+	}
+	#footer-nav > li {
+		line-height: 25px;
+		text-align: center;
+		list-style: none;
+		display: list-item;
+		margin-left: -35px;
 	}
 
 }
