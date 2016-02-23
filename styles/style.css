@@ -31,18 +31,21 @@ html, body {
 .splash-about {
 	margin-top: 70px;
 	width: 100%;
-	position: absolute;
+	position: relative;
 	height:100%;
 }
 
 .splash-about-box {
 	width: 100%;
+	max-width: 500px;
+	height: 500px;
+	position: absolute;
+  top: 50%;
+  left: 50%;
+	transform: translate(-50%, -50%);
 	border-radius: 5px;
 	padding: 20px;
-	max-width: 500px;
 	background: white;
-	height: 500px;
-	margin: 25% auto;
 	font-family: 'Montserrat', sans-serif;
 }
 
@@ -179,10 +182,7 @@ html, body {
 		display: block;
 		margin: 0 auto;
 	}
-
-	/*#main-nav ul {
-	display: none;
-	}*/
+	
 	#main-nav > ul > li:nth-child(-n+2){
 		display: list-item;;
 	}
