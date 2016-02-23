@@ -59,6 +59,21 @@ body{
 	border-radius: 5px;
 }
 
+#main-nav > ul > .register > a {
+	background: rgba(0, 219, 0, 0.55);
+	text-decoration: none;
+	padding: 8px;
+	border: 2px solid white;
+	border-radius: 5px;
+}
+
+#main-nav > ul > .login > a {
+	text-decoration: none;
+	padding: 8px;
+	border: 2px solid white;
+	border-radius: 5px;
+}
+
 .container-full {
 	height: 100%;
 	margin-top: -70px;
