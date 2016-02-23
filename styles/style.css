@@ -48,6 +48,7 @@ body{
 #main-nav ul li a {
 	color: white;
 	padding: 10px;
+	font-family: 'Montserrat', sans-serif;
 }
 
 #main-nav ul li a:hover {
