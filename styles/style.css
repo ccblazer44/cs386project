@@ -11,6 +11,11 @@ html, body {
 	background-size: cover;
 }
 
+#explore-landing {
+	border-top: 5px solid black;
+	background: white;
+}
+
 .toggle-nav {
 	display: none;
 }
@@ -54,7 +59,8 @@ html, body {
 	width: 192px;
 }
 
-#main-nav {
+#main-nav,
+#main-nav-explore {
 	border-top: 5px solid white;
 	width: 100%;
 	margin: 0 auto;
@@ -62,19 +68,30 @@ html, body {
 	line-height: 70px;
 }
 
-#main-nav ul {
+#main-nav ul,
+#main-nav-explore ul {
 	float: right;
 }
 
-#main-nav ul li {
+#main-nav ul li,
+#main-nav-explore ul li {
 	padding: 0 7px;
 	display: inline-block;
 }
 
-#main-nav ul li a {
+#main-nav ul li a,
+#main-nav-explore ul li a {
 	color: white;
 	padding: 10px;
 	font-family: 'Montserrat', sans-serif;
+}
+
+#main-nav-explore ul li a {
+	color: black;
+}
+
+#main-nav-explore .active-page {
+	border-bottom: 2px solid black;
 }
 
 .active-page {
@@ -85,7 +102,8 @@ html, body {
 	text-decoration: none;
 }
 
-#main-nav ul li:not(.active-page) a:hover {
+#main-nav ul li:not(.active-page) a:hover,
+#main-nav-explore ul li:not(.active-page) a:hover {
 	background: rgba(255, 255, 255, 0.25);
 	text-decoration: none;
 	padding: 8px;
@@ -93,7 +111,16 @@ html, body {
 	border-radius: 5px;
 }
 
-#main-nav > ul > .register > a {
+#main-nav-explore ul li:not(.active-page) a:hover {
+	background: rgba(0, 0, 0, 0.25);
+}
+
+#main-nav-explore ul li:not(.active-page) a:hover {
+	border: 2px solid black;
+}
+
+#main-nav > ul > .register > a,
+#main-nav-explore > ul > .register > a {
 	background: rgba(0, 219, 0, 0.55);
 	text-decoration: none;
 	padding: 8px;
@@ -101,11 +128,24 @@ html, body {
 	border-radius: 5px;
 }
 
-#main-nav > ul > .login > a {
+#main-nav-explore > ul > .register > a {
+	background: rgba(0, 219, 0, 1);
+}
+
+#main-nav-explore > ul > .register > a {
+	border-color: black;
+}
+
+#main-nav > ul > .login > a,
+#main-nav-explore > ul > .login > a {
 	text-decoration: none;
 	padding: 8px;
 	border: 2px solid white;
 	border-radius: 5px;
+}
+
+#main-nav-explore > ul > .login > a {
+	border-color: black;
 }
 
 #footer {
@@ -187,17 +227,20 @@ html, body {
 		display: block;
 	}
 
-	#main-nav ul.active {
+	#main-nav ul.active,
+	#main-nav-explore ul.active {
 		position:relative;
 		display:inline-block;
 		z-index: 10;
 	}
 
-	#main-nav ul {
+	#main-nav ul,
+	#main-nav-explore ul {
 		display:none;
 	}
 
-	#main-nav ul {
+	#main-nav ul,
+	#main-nav-explore ul {
 		width:100%;
 		position:absolute;
 		top:120%;
@@ -208,7 +251,8 @@ html, body {
 		background: rgba(0, 0, 0, 0.9);;
 	}
 
-	#main-nav ul:after {
+	#main-nav ul:after,
+	#main-nav-explore ul:after {
 		width:0px;
 		height:0px;
 		position:absolute;
@@ -222,7 +266,8 @@ html, body {
 		border-bottom:7px solid black;
 	}
 
-	#main-nav ul li {
+	#main-nav ul li,
+	#main-nav-explore ul li {
 		line-height: 40px;
 		margin:5px 0px 5px 0px;
 		float:none;
@@ -230,8 +275,23 @@ html, body {
 		text-align: center;
 	}
 
-	#main-nav a {
+	#main-nav a,
+	#main-nav-explore a {
 		display:block;
+	}
+
+	#main-nav-explore ul li a {
+		color: white;
+	}
+
+	#main-nav-explore > ul > .register > a,
+	#main-nav-explore > ul > .login > a  {
+		border-color: white;
+	}
+
+	#main-nav > ul > li.active-page,
+	#main-nav-explore > ul > li.active-page {
+		border: none;
 	}
 
 	.splash > h2 {
@@ -256,20 +316,17 @@ html, body {
 		display: inline-block;
 	}
 
-	.toggle-nav:hover {
+	.toggle-nav.explore {
+		color:black;
+	}
+
+	.toggle-nav.explore:matches(:hover, :active, :focus) {
+		color: black;
+		text-decoration: none;
+	}
+
+	.toggle-nav:matches(:hover, :active, :focus) {
 		color:white;
-		text-decoration: none;
-	}
-	.toggle-nav:active {
-		color: white;
-		text-decoration: none;
-	}
-	.toggle-nav:focus {
-		color: white;
-		text-decoration: none;
-	}
-	.toggle-nav:visited {
-		color: white;
 		text-decoration: none;
 	}
 
