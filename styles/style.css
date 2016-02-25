@@ -117,9 +117,12 @@ html, body {
 	height: 500px;
 	width: 750px;
 	max-width: 90%;
+	max-height: 75%;
+	z-index: 5;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	-webkit-transform: -webkit-translate(-50%, -50%);
 }
 
 

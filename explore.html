@@ -58,37 +58,18 @@
 		</div>
 	</div>
 
-	<script type="text/javascript">
+	<script type="text/javascript" charset="UTF-8">
 
-		var options = {
-			enableHighAccuracy: true,
-			timeout: 5000,
-			maximumAge: 0
-		};
+		var map = L.map('map');
+		map.locate({setView: true, maxZoom: 16, enableHighAccuracy: true});
 
-		function success(pos) {
-			var lat = pos.coords.latitude;
-			var lon = pos.coords.longitude;
-			var zoom = 16;
-			create_map(lat,lon,zoom);
-		};
-
-		function error(err) {
-			console.warn('ERROR(' + err.code + '): ' + err.message);
-			create_map(0,0,2);
-		};
-
-		function create_map(lat, lon, zoom) {
-			var map = L.map('map').setView([lat, lon], zoom);
-			L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-				attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-				maxZoom: 18,
-				id: 'mapbox.satellite',
-				accessToken: 'pk.eyJ1Ijoiam9yZGVua3JlcHMiLCJhIjoiY2lsMmsxYnhhM2N1b3U0bTN6ZzVoajNnZSJ9.qrqo_xoW8Av1Lb0ph-xUKQ'
-			}).addTo(map);
-		};
-
-		navigator.geolocation.getCurrentPosition(success, error, options);
+		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+			detectRetina: true,
+			maxZoom: 18,
+			id: 'mapbox.satellite',
+			accessToken: 'pk.eyJ1Ijoiam9yZGVua3JlcHMiLCJhIjoiY2lsMmsxYnhhM2N1b3U0bTN6ZzVoajNnZSJ9.qrqo_xoW8Av1Lb0ph-xUKQ'
+		}).addTo(map);
 
 	</script>
 <script src="http://localhost:35729/livereload.js" charset="utf-8"></script>
