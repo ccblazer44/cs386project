@@ -144,10 +144,7 @@ html, body {
 }
 
 #main-nav-explore > ul > .register > a {
-	background: rgba(0, 219, 0, 1);
-}
-
-#main-nav-explore > ul > .register > a {
+	background: rgba(0, 219, 0, .45);
 	border-color: black;
 }
 
@@ -220,13 +217,15 @@ html, body {
 }
 
 @media (max-width: 750px) {
-	#main-nav > ul > li:nth-child(1){
+	#main-nav > ul > li:nth-child(1),
+	#main-nav-explore > ul > li:nth-child(1){
 		display: none;
 	}
 }
 
 @media (max-width: 670px) {
-	#main-nav > ul > li:nth-child(2){
+	#main-nav > ul > li:nth-child(2),
+	#main-nav-explore > ul > li:nth-child(2){
 		display: none;
 	}
 }
@@ -238,7 +237,8 @@ html, body {
 		margin: 0 auto;
 	}
 
-	#main-nav > ul > li:nth-child(-n+2){
+	#main-nav > ul > li:nth-child(-n+2),
+	#main-nav-explore > ul > li:nth-child(-n+2){
 		display: block;
 	}
 
