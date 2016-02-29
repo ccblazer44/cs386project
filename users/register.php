@@ -1,6 +1,7 @@
 <?php
 include('config.php');
 ?>
+<!DOCTYPE html>
 <html>
 <head>
   <title>Chitchat</title>
@@ -29,7 +30,7 @@ include('config.php');
   <div id="main-nav">
 
 		<div id="brand-logo">
-			<a href="index.html"><img src="../assets/logo-white.png" /></a>
+			<a href="../index.html"><img src="../assets/logo-white.png" /></a>
 		</div>
 		<ul>
 			<li><a href="../about.html">About</a></li>
