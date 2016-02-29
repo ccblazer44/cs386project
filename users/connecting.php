@@ -2,25 +2,49 @@
 include('config.php');
 ?>
 <html>
-	<head>
-        <link rel="stylesheet" type="text/css" href="../master.css">
-    </head>
+<head>
+  <title>Chitchat</title>
+  <link rel="stylesheet" href="../styles/style.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <script>
+  jQuery(document).ready(function() {
+    jQuery('.toggle-nav').click(function(e) {
+        jQuery(this).toggleClass('active');
+        jQuery('#main-nav ul').toggleClass('active');
+        e.preventDefault();
+    });
+  });
+  </script>
+</head>
 
 
 <body>
-<div id="page-container">
 
-    <div id="main-nav">
-        <a href="../index.html">MAIN PAGE</a> -- <a href="../about.html">ABOUT ME</a></li> -- <a href="../contact.html">CONTACT US</a> -- <a href="../pro7/login.php">LOG IN</a> -- <a href="index.php">MESSAGES</a>
-    </div>
+  <div id="main-nav">
 
-    <div id="header">
-        <h1><img src="../images/name.png"
-                width="236" height="36" alt="Chris Blazer" border="0" /></h1>
-    </div>
+		<div id="brand-logo">
+			<a href="index.html"><img src="../assets/logo-white.png" /></a>
+		</div>
+		<ul>
+			<li><a href="../about.html">About</a></li>
+			<li><a href="../contact.html">Support</a></li>
+			<li><a href="../explore.html">Explore</a></li>
+			<li class="register"><a href="register.php">Sign Up</a></li>
+			<li class="login"><a href="connecting.php">Login</a></li>
+		</ul>
+		<a class="toggle-nav" href="#">&#9776;</a>
+	</div>
 
 
-    <div id="content">
+	<div id="landing" class="container-full">
+    <div class="splash-about">
+			<div class="splash-about-box">
 
         <?php
 		//Logs out the user
@@ -30,7 +54,7 @@ include('config.php');
 			unset($_SESSION['username'], $_SESSION['userid']);
 		?>
 		Logged Out<br />
-		<a href="<?php echo $url_home; ?>">Home</a></div>
+		<a href="<?php echo $url_home; ?>">Home</a>
 		<?php
 		}
 		else
@@ -64,12 +88,12 @@ include('config.php');
 					$_SESSION['userid'] = $dn['id'];
 		?>
 		Login successful.<br />
-		<a href="<?php echo $url_home; ?>">Back to Messages</a></div>
+		<a href="<?php echo $url_home; ?>">Back to Messages</a>
 		<?php
 				}
 				else
 				{
-					
+
 					$form = true;
 					$message = 'One of your inputs are incorrect';
 				}
@@ -85,33 +109,38 @@ include('config.php');
 				echo $message;
 			}
 		?>
-		
+
 		    <form action="connecting.php" method="post">
 		        LOG IN:<br />
-		        
+
 		            <br> <label for="username">Username    </label><input type="text" name="username" id="username" value="<?php echo htmlentities($ousername, ENT_QUOTES, 'UTF-8'); ?>" /><br />
 		            <br><label for="password">Password    </label><input type="password" name="password" id="password" /><br />
 		            <br><input type="submit" value="Log In" />
-				
+
 		    </form>
-		
+
 		<?php
 			}
 		}
 		?>
-            
-            
         </div>
 
     </div>
 
-    <div id="footer">
-        <div id="altnav">
-            <a href="../index.html">Main Page</a> - <a href="../about.html">About Me</a> - <a href="../contact.html">Contact Us</a> - <a href="../pro7/login.php">Log In</a> - <a href="index.php">Messages</a>
-        </div>
-        Copyright @ Chris Blazer
-    </div>
-
+		<div id="footer">
+			<div id="footer-top">
+				<ul id="footer-nav">
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact</a></li>
+					<li><a href="#">Terms of Service</a></li>
+					<li><a href="#">Privacy Policy</a></li>
+				</ul>
+			</div>
+			<div id="footer-bottom">
+				<p class="text-center"> &copy; Copyright 2016</p>
+			</div>
+		</div>
+		<script src="http://localhost:35729/livereload.js" charset="utf-8"></script>
 </div>
 </body>
 </html>
