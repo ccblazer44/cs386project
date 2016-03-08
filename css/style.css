@@ -263,20 +263,6 @@ html, body {
 		background: rgba(0, 0, 0, 0.85);
 	}
 
-	#main-nav ul:after {
-		width:0px;
-		height:0px;
-		position:absolute;
-		top:0%;
-		right:22px;
-		content:'';
-		opacity: .9;
-		transform:translate(0%, -100%);
-		border-left:7px solid transparent;
-		border-right:7px solid transparent;
-		border-bottom:7px solid black;
-	}
-
 	#main-nav ul li {
 		line-height: 75px;
 		margin:5px 0px;
