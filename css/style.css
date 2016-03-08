@@ -24,13 +24,13 @@ html, body {
 	left: 50%;
 	height: 40px;
 	width: 40px;
-	background: url(../assets/spinner.png);
+	background: url(../img/spinner.png);
 	animation: spin .75s linear infinite;
 }
 
 #landing {
 	border-top: 5px solid white;
-	background: url(../assets/cell-phone-bg.png) no-repeat center center;
+	background: url(../img/cell-phone-bg.png) no-repeat center center;
 	background-size: cover;
 }
 
@@ -220,12 +220,29 @@ html, body {
 		margin: 0 auto;
 	}
 
+	.active-page {
+		border-bottom: none;
+	}
+
+	#main-nav ul li a:hover {
+		background: rgba(255, 255, 255, 0.25);
+		text-decoration: none;
+		padding: 8px;
+		border: 2px solid white;
+		border-radius: 5px;
+	}
+
 	#main-nav > ul > li:nth-child(-n+2){
 		display: block;
 	}
 
 	#main-nav ul.active {
-		position:relative;
+		top: 0;
+		left: 0;
+		height: 100%;
+		overflow: hidden;
+		padding-top: 25%;
+		position:absolute;
 		display:inline-block;
 		z-index: 10;
 	}
@@ -242,7 +259,7 @@ html, body {
 		padding:10px 18px;
 		box-shadow:0px 1px 1px rgba(0,0,0,0.15);
 		border-radius:3px;
-		background: rgba(0, 0, 0, 0.9);
+		background: rgba(0, 50, 0, 0.9);
 	}
 
 	#main-nav ul:after {
@@ -260,19 +277,24 @@ html, body {
 	}
 
 	#main-nav ul li {
-		line-height: 40px;
-		margin:5px 0px 5px 0px;
+		line-height: 75px;
+		margin:5px 0px;
 		float:none;
 		display:block;
 		text-align: center;
+		font-size: 36px;
+	}
+
+	#main-nav > ul > .register > a,
+	#main-nav > ul > .login > a {
+		background: none;
+		text-decoration: none;
+		border: 1px;
+		padding: 10px;
 	}
 
 	#main-nav a {
 		display:block;
-	}
-
-	#main-nav > ul > li.active-page {
-		border: none;
 	}
 
 	.splash > h2 {
@@ -286,6 +308,7 @@ html, body {
 	}
 
 	.toggle-nav {
+		z-index: 20;
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -297,13 +320,8 @@ html, body {
 		display: inline-block;
 	}
 
-	.toggle-nav.explore {
-		color:black;
-	}
-
-	.toggle-nav.explore:matches(:hover, :active, :focus) {
-		color: black;
-		text-decoration: none;
+	.toogle-nav.active:after {
+		content: "x";
 	}
 
 	.toggle-nav:matches(:hover, :active, :focus) {
