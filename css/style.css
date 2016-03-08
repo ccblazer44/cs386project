@@ -240,8 +240,8 @@ html, body {
 		top: 0;
 		left: 0;
 		height: 100%;
+		padding-top: 70px;
 		overflow: hidden;
-		padding-top: 25%;
 		position:absolute;
 		display:inline-block;
 		z-index: 10;
@@ -260,7 +260,7 @@ html, body {
 		padding:10px 18px;
 		box-shadow:0px 1px 1px rgba(0,0,0,0.15);
 		border-radius:3px;
-		background: rgba(0, 50, 0, 0.9);
+		background: rgba(0, 0, 0, 0.85);
 	}
 
 	#main-nav ul:after {
