@@ -4,7 +4,7 @@ jQuery(document).ready(function() {
 			jQuery('#main-nav ul').toggleClass('active');
 
 			if (jQuery(this).hasClass('active')){
-				jQuery(this).html("&#10006;");
+				jQuery(this).html("&times;");
 			} else {
 				jQuery(this).html("&#9776;");
 			}
