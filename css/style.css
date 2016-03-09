@@ -359,7 +359,7 @@ Mobile Styling!
 		height: 100%;
 		padding-top: 70px;
 		overflow: hidden;
-		position:absolute;
+		position: fixed;
 		display:inline-block;
 		z-index: 10;
 		border-radius: 0px;
@@ -427,6 +427,10 @@ Mobile Styling!
 	.toggle-nav:matches(:hover, :active, :focus) {
 		color:white;
 		text-decoration: none;
+	}
+
+	.toggle-nav.active{
+		position: fixed;
 	}
 
 	#footer {
