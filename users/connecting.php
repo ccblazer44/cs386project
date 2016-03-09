@@ -5,23 +5,12 @@ include('config.php');
 <html>
 <head>
   <title>Chitchat</title>
-  <link rel="stylesheet" href="../styles/style.css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-  <script>
-  jQuery(document).ready(function() {
-    jQuery('.toggle-nav').click(function(e) {
-        jQuery(this).toggleClass('active');
-        jQuery('#main-nav ul').toggleClass('active');
-        e.preventDefault();
-    });
-  });
-  </script>
+	<link rel="stylesheet" href="../css/style.css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/menu.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 
@@ -30,7 +19,7 @@ include('config.php');
   <div id="main-nav">
 
 		<div id="brand-logo">
-			<a href="../index.html"><img src="../assets/logo-white.png" /></a>
+			<a href="../index.html"><img src="../img/logo-white.png" /></a>
 		</div>
 		<ul>
 			<li><a href="../about.html">About</a></li>
@@ -114,8 +103,8 @@ include('config.php');
 		    <form action="connecting.php" method="post">
 		        LOG IN:<br />
 
-		            <br> <label for="username">Username    </label><input type="text" name="username" id="username" value="<?php echo htmlentities($ousername, ENT_QUOTES, 'UTF-8'); ?>" /><br />
-		            <br><label for="password">Password    </label><input type="password" name="password" id="password" /><br />
+		            <br> <label for="username">Username</label><input type="text" name="username" id="username" value="<?php echo htmlentities($ousername, ENT_QUOTES, 'UTF-8'); ?>" /><br />
+		            <br><label for="password">Password</label><input type="password" name="password" id="password" /><br />
 		            <br><input type="submit" value="Log In" />
 
 		    </form>
