@@ -124,14 +124,14 @@ include('config.php');
 				echo $message;
 			}
 		?>
-		    <form action="register.php" method="post">
+		    <form id="registration" action="register.php" method="post">
 		        Create an Account<br />
-		            <br><label for="username">Username</label><input type="text" name="username" value="<?php if(isset($_POST['username'])){echo htmlentities($_POST['username'], ENT_QUOTES, 'UTF-8');} ?>" /><br />
-		            <br><label for="password">Password (3 char. min.)</label><input type="password" name="password" /><br />
-		            <br><label for="passverif">Confirm Password</label><input type="password" name="passverif" /><br />
-		            <br><label for="email">Email</label><input type="text" name="email" value="<?php if(isset($_POST['email'])){echo htmlentities($_POST['email'], ENT_QUOTES, 'UTF-8');} ?>" /><br />
+		            <br><input placeholder="Username"type="text" name="username" value="<?php if(isset($_POST['username'])){echo htmlentities($_POST['username'], ENT_QUOTES, 'UTF-8');} ?>" /><br />
+		            <br><input placeholder="Password" type="password" name="password" /><br />
+		            <br><input placeholder="Confirm Password" type="password" name="passverif" /><br />
+		            <br><input placeholder="Email (optional)" type="text" name="email" value="<?php if(isset($_POST['email'])){echo htmlentities($_POST['email'], ENT_QUOTES, 'UTF-8');} ?>" /><br />
 
-		            <br><input type="submit" value="Create" />
+		            <br><input class="sign-up-button" type="submit" value="Sign Up" />
 		    </form>
 		<?php
 		}
