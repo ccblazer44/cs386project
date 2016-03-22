@@ -1,6 +1,5 @@
 <?php
 
-
 //Starts the session
 session_start();
 //Connecticn my database

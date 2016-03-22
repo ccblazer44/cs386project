@@ -100,12 +100,13 @@ include('config.php');
 			}
 		?>
 
-		    <form action="connecting.php" method="post">
-		        LOG IN:<br />
+		    <form id="registration" action="connecting.php" method="post">
+		        Log In:<br />
 
-		            <br> <label for="username">Username</label><input type="text" name="username" id="username" value="<?php echo htmlentities($ousername, ENT_QUOTES, 'UTF-8'); ?>" /><br />
-		            <br><label for="password">Password</label><input type="password" name="password" id="password" /><br />
-		            <br><input type="submit" value="Log In" />
+		            <br><input type="text" name="username" placeholder="Username" id="username" value="<?php echo htmlentities($ousername, ENT_QUOTES, 'UTF-8'); ?>" /><br />
+		            <br><input type="password" name="password" placeholder="Password" id="password" /><br />
+                <input style="display:none;"/><input style="display:none;"/>
+		            <br><input class="sign-up-button" type="submit" value="Log In" />
 
 		    </form>
 
