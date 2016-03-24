@@ -58,20 +58,20 @@ include('config.php');
 					if(preg_match('#^(([a-z0-9!\#$%&\\\'*+/=?^_`{|}~-]+\.?)*[a-z0-9!\#$%&\\\'*+/=?^_`{|}~-]+)@(([a-z0-9-_]+\.?)*[a-z0-9-_]+)\.[a-z]{2,}$#i',$_POST['email']))
 					{
 						//We protect the variables
-						$username = ((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $_POST['username']) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""));
-						$password = ((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $_POST['password']) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""));
-						$email = ((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $_POST['email']) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""));
+						$username = mysql_real_escape_string($_POST['username']);
+						$password = mysql_real_escape_string($_POST['password']);
+						$email = mysql_real_escape_string($_POST['email']);
 
 						//Confirmation that there are no duplicate agent names
-						$dn = mysqli_num_rows(mysqli_query($GLOBALS["___mysqli_ston"], 'select id from users where username="'.$username.'"'));
+						$dn = mysql_num_rows(mysql_query('select id from users where username="'.$username.'"'));
 						if($dn==0)
 						{
 							//I did not auto-increment the ID for preference.
 		                                        //Therefore, this just counts it from the previous once made
-							$dn2 = mysqli_num_rows(mysqli_query($GLOBALS["___mysqli_ston"], 'select id from users'));
+							$dn2 = mysql_num_rows(mysql_query('select id from users'));
 							$id = $dn2+1;
 							//Database collects and saves all inputs
-							if(mysqli_query($GLOBALS["___mysqli_ston"], 'insert into users(id, username, password, email, dateregistered) values ('.$id.', "'.$username.'", "'.$password.'", "'.$email.'", "'.time().'")'))
+							if(mysql_query('insert into users(id, username, password, email, dateregistered) values ('.$id.', "'.$username.'", "'.$password.'", "'.$email.'", "'.time().'")'))
 							{
 								$form = false;
 		?>

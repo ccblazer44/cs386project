@@ -29,8 +29,8 @@ include('config.php');
             </tr>
         <?php
         //We get the IDs, usernames and emails of users
-        $req = mysqli_query($GLOBALS["___mysqli_ston"], 'select id, username, email from users');
-        while($dnn = mysqli_fetch_array($req))
+        $req = mysql_query('select id, username, email from users');
+        while($dnn = mysql_fetch_array($req))
         {
         ?>
             <tr>
