@@ -28,10 +28,10 @@ include('config.php');
 		        //Checks if the MSGI account even exists.
 			$id = intval($_GET['id']);
 			
-			$dn = mysqli_query($GLOBALS["___mysqli_ston"], 'select username, email, dateregistered from users where id="'.$id.'"');
-			if(mysqli_num_rows($dn)>0)
+			$dn = mysql_query('select username, email, dateregistered from users where id="'.$id.'"');
+			if(mysql_num_rows($dn)>0)
 			{
-				$dnn = mysqli_fetch_array($dn);
+				$dnn = mysql_fetch_array($dn);
 				
 		?>
 		<h2>Profile of user "<?php echo htmlentities($dnn['username']); ?>" :</h2>

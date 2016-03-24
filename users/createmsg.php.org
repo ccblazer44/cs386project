@@ -49,18 +49,18 @@ include('config.php');
 			//Validation to ensure if the input fields are correct and filled
 			if($_POST['title']!='' and $_POST['recip']!='' and $_POST['message']!='')
 			{
-				$title = ((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $otitle) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""));
-				$recip = ((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $orecip) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""));
-				$message = ((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"], nl2br(htmlentities($omessage, ENT_QUOTES, 'UTF-8'))) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""));
+				$title = mysql_real_escape_string($otitle);
+				$recip = mysql_real_escape_string($orecip);
+				$message = mysql_real_escape_string(nl2br(htmlentities($omessage, ENT_QUOTES, 'UTF-8')));
 				//Does the person you are sending the message to exist. This is what the below code processes.
-				$dn1 = mysqli_fetch_array(mysqli_query($GLOBALS["___mysqli_ston"], 'select count(id) as recip, id as recipid, (select count(*) from messaging) as npm from users where username="'.$recip.'"'));
+				$dn1 = mysql_fetch_array(mysql_query('select count(id) as recip, id as recipid, (select count(*) from messaging) as npm from users where username="'.$recip.'"'));
 				if($dn1['recip']==1)
 				{
 					//Ensures that the sender is not sending a message to him/her--self
 					if($dn1['recipid']!=$_SESSION['userid'])
 					{
 						$id = $dn1['npm']+1;
-						if(mysqli_query($GLOBALS["___mysqli_ston"], 'insert into messaging (id, id2, title, user1, user2, message, timestamp, user1read, user2read)values("'.$id.'", "1", "'.$title.'", "'.$_SESSION['userid'].'", "'.$dn1['recipid'].'", "'.$message.'", "'.time().'", "yes", "no")'))
+						if(mysql_query('insert into messaging (id, id2, title, user1, user2, message, timestamp, user1read, user2read)values("'.$id.'", "1", "'.$title.'", "'.$_SESSION['userid'].'", "'.$dn1['recipid'].'", "'.$message.'", "'.time().'", "yes", "no")'))
 						{
 		?>
 		The message has successfully been sent.<br />
