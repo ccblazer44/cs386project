@@ -156,6 +156,5 @@ include('config.php');
   			<p class="text-center"> &copy; Copyright 2016</p>
   		</div>
   	</div>
-<script src="http://localhost:35729/livereload.js" charset="utf-8"></script>
 </body>
 </html>
