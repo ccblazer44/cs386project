@@ -53,13 +53,21 @@ include('config.php');
     </div>
   </div>
   <script type="text/javascript" charset="UTF-8">
-
+    var marker = null;
     var map = L.map('map').setView([0,0], 2);
-    map.locate({setView: true, maxZoom: 16, enableHighAccuracy: true});
+    map.locate({watch: true, setView: true, maxZoom: 16, enableHighAccuracy: true});
     L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
       subdomains: ['a', 'b', 'c']
     }).addTo(map);
+
+    map.on('locationfound', function(e){
+      if (marker != null){
+        marker.setLatLng(e.latlng);
+      } else {
+        marker = L.marker(e.latlng).addTo(map);
+      }
+    })
 
   </script>
 </div>
