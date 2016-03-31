@@ -38,7 +38,7 @@ include('config.php');
     <div id="map">
     </div>
     <div class="room-options">
-      <input type="range" min='22.86' max='804.67' step='1' onchange="updateSlider(this.value)"/>
+      <input type="range" min='22.86' max='804.67' step='1' oninput="updateSlider(this.value)"/>
     </div>
   </div>
 
