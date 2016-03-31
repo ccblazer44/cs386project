@@ -37,6 +37,9 @@ include('config.php');
 	<div id="landing" class="container-full">
     <div id="map">
     </div>
+    <div class="room-options">
+      <input type="range" min='22.86' max='804.67' step='1' onchange="updateSlider(this.value)"/>
+    </div>
   </div>
 
   <div id="footer">
@@ -54,7 +57,7 @@ include('config.php');
   </div>
   <script type="text/javascript" charset="UTF-8">
     var marker = null;
-    var circle = L.circle([0,0], 400);
+    var circle = L.circle([0,0], 390.905);
     var map = L.map('map').setView([0,0], 2);
     map.locate({watch: true, setView: true, maxZoom: 16, enableHighAccuracy: true});
     L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -71,6 +74,10 @@ include('config.php');
         circle.addTo(map);
       }
     })
+
+    function updateSlider(value) {
+      circle.setRadius(value);
+    }
 
   </script>
 </div>
