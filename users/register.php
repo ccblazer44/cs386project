@@ -37,7 +37,7 @@ include('config.php');
 			<div class="splash-about-box">
         <?php
 		//Submission check
-		if(isset($_POST['username'], $_POST['password'], $_POST['passverif'], $_POST['email']) and $_POST['username']!='')
+		if(isset($_POST['username'], $_POST['password'], $_POST['passverif']) and $_POST['username']!='')
 		{
 			//Configuration with the help of my brother
 			if(get_magic_quotes_gpc())
@@ -54,14 +54,21 @@ include('config.php');
 				//Make sure that the password is atleast 3 or greater
 				if(strlen($_POST['password'])>=3)
 				{
-					//Validation for the email
-					if(preg_match('#^(([a-z0-9!\#$%&\\\'*+/=?^_`{|}~-]+\.?)*[a-z0-9!\#$%&\\\'*+/=?^_`{|}~-]+)@(([a-z0-9-_]+\.?)*[a-z0-9-_]+)\.[a-z]{2,}$#i',$_POST['email']))
+					//Validation for the email// Null allowed
+					if(preg_match('#^(([a-z0-9!\#$%&\\\'*+/=?^_`{|}~-]+\.?)*[a-z0-9!\#$%&\\\'*+/=?^_`{|}~-]+)@(([a-z0-9-_]+\.?)*[a-z0-9-_]+)\.[a-z]{2,}$#i',$_POST['email']) || $_POST['email'] == "")
 					{
+
 						//We protect the variables
 						$username = ((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $_POST['username']) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""));
 						$password = ((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $_POST['password']) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""));
-						$email = ((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $_POST['email']) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""));
-
+//Change Mar 31 ~ mrn24
+            if ($_POST['email'] == "")
+            {
+              $email = NULL;
+            }
+            else{
+              $email = ((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"], $_POST['email']) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""));
+            }
 						//Confirmation that there are no duplicate agent names
 						$dn = mysqli_num_rows(mysqli_query($GLOBALS["___mysqli_ston"], 'select id from users where username="'.$username.'"'));
 						if($dn==0)
