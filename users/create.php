@@ -54,6 +54,7 @@ include('config.php');
   </div>
   <script type="text/javascript" charset="UTF-8">
     var marker = null;
+    var circle = L.circle([0,0], 400);
     var map = L.map('map').setView([0,0], 2);
     map.locate({watch: true, setView: true, maxZoom: 16, enableHighAccuracy: true});
     L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -64,8 +65,10 @@ include('config.php');
     map.on('locationfound', function(e){
       if (marker != null){
         marker.setLatLng(e.latlng);
+        circle.setLatLng(e.latlng);
       } else {
         marker = L.marker(e.latlng).addTo(map);
+        circle.addTo(map);
       }
     })
 
