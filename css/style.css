@@ -117,16 +117,14 @@ html, body {
 }
 
 #map {
+	position: relative;
 	border-radius: 25px;
-	height: 500px;
+	height: 400px;
 	width: 750px;
 	max-width: 90%;
 	max-height: 75%;
 	z-index: 5;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	-webkit-transform: -webkit-translate(-50%, -50%);
+	margin: 0 auto;
 }
 
 #main-nav > ul > .register > a {
@@ -142,16 +140,6 @@ html, body {
 	padding: 8px;
 	border: 2px solid white;
 	border-radius: 5px;
-}
-
-.room-options {
-	width: 100%;
-	margin-top: 200px;
-}
-
-.room-options input {
-	margin: 0 auto;
-	max-width: 500px;
 }
 
 #footer {
@@ -286,7 +274,6 @@ input:focus {
 #registration input:nth-of-type(5) {
 	text-align: center;
 	text-indent: 0;
-	background: ;
 }
 
 .sign-up-button {
@@ -408,6 +395,10 @@ Mobile Styling!
 
 	#main-nav a {
 		display:block;
+	}
+
+	#map {
+		height: 400px;
 	}
 
 	.splash > h2 {
