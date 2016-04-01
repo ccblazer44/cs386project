@@ -35,10 +35,16 @@ include('config.php');
 	</div>
 
 	<div id="landing" class="container-full">
-    <div id="map">
-    </div>
-    <div class="room-options">
-      <input type="range" min='22.86' max='804.67' step='1' oninput="updateSlider(this.value)"/>
+    <div class="splash-about">
+      <div class="splash-about-box">
+        <div id="map"></div>
+        <form style="margin: 0; padding: 0; text-align:center; max-width: 100%;" class="create-room" action="index.html" method="post">
+          <input style="width: 100%;margin-top: 5px;"type="text" name="name" value="" placeholder="Room Name">
+          <p style="float: left; width: 10%; line-height: 50px;">Radius</p>
+          <input style="float:right; width: 85%; height: 50px;" type="range" min='22.86' max='804.67' step='1' oninput="updateSlider(this.value)"/>
+          <input style="margin-top: -5px;" class="sign-up-button" type="submit" value="Create Room" />
+        </form>
+      </div>
     </div>
   </div>
 
@@ -80,6 +86,8 @@ include('config.php');
     }
 
   </script>
+
+  <script src="http://localhost:35729/livereload.js" charset="utf-8"></script>
 </div>
 </body>
 </html>
