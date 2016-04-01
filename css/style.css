@@ -398,7 +398,7 @@ Mobile Styling!
 	}
 
 	#map {
-		height: 400px;
+		max-height: 45%;
 	}
 
 	.splash > h2 {
