@@ -1,5 +1,11 @@
 <?php
 include('config.php');
+
+if(!isset($_SESSION['username'])) {
+  header("Location: ./connecting.php");
+};
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,11 +31,9 @@ include('config.php');
 			<a href="../index.html"><img src="../img/logo-white.png" /></a>
 		</div>
 		<ul>
-			<li><a href="../about.html">About</a></li>
-			<li><a href="../contact.html">Support</a></li>
-			<li><a href="../explore.html">Explore</a></li>
-			<li class="register"><a href="register.php">Sign Up</a></li>
-			<li class="login"><a href="connecting.php">Login</a></li>
+      <?php
+      include('nav.php');
+      ?>
 		</ul>
 		<a class="toggle-nav" href="#">&#9776;</a>
 	</div>
@@ -38,7 +42,7 @@ include('config.php');
     <div class="splash-about">
       <div class="splash-about-box">
         <div id="map"></div>
-        <form style="margin: 0; padding: 0; text-align:center; max-width: 100%;" class="create-room" action="index.html" method="post">
+        <form class="create-room" style="margin: 0; padding: 0; text-align:center; max-width: 100%;" class="create-room" action="index.html" method="post">
           <input style="width: 100%;margin-top: 5px;"type="text" name="name" value="" placeholder="Room Name">
           <p style="float: left; width: 10%; line-height: 50px;">Radius</p>
           <input style="float:right; width: 85%; height: 50px;" type="range" min='22.86' max='804.67' step='1' oninput="updateSlider(this.value)"/>
