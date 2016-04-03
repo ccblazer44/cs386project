@@ -47,8 +47,8 @@ if (isset($_POST['name']) && isset($_POST['radius'])) {
 	<link href='https://fonts.googleapis.com/css?family=Cardo' rel='stylesheet' type='text/css'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<script type="text/javascript" src="../js/menu.js"></script>
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+	<link rel="stylesheet" href="./js/leaflet.css" />
+	<script src="./js/leaflet.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -101,7 +101,7 @@ if (isset($_POST['name']) && isset($_POST['radius'])) {
     var circle = L.circle([0,0], 390.905);
     var map = L.map('map').setView([0,0], 2);
     map.locate({watch: true, setView: true, maxZoom: 16, enableHighAccuracy: true});
-    L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    L.tileLayer( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
       subdomains: ['a', 'b', 'c']
     }).addTo(map);
