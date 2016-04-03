@@ -62,7 +62,6 @@
 		}).addTo(map);
 
 		function drawRooms(data) {
-
 			var circle;
 			for (var i = 0; i < data.rooms.length; i++) {
 				console.log(data.rooms[i].latlng);
@@ -71,8 +70,10 @@
 			}
 		}
 
+		var url = 'http://cefns.nau.edu/~jk788/chitchat/users/api/api.php';
+
 		$.ajax({
-			url: 'http://cefns.nau.edu/~jk788/users/api/api.php',
+			url: this.url,
 			dataType: 'json',
 			cache: false,
 			type: 'GET',
@@ -81,10 +82,11 @@
 			},
 			success: function(data) {
 				drawRooms(data);
-			}.bind(this),
+			},
 			error: function(xhr, status, err) {
-				console.error('./users/api', status, err.toString());
-			}.bind(this)
+				console.log(xhr);
+				console.error(this.url, status, err.toString());
+			}
 		});
 
 	</script>
