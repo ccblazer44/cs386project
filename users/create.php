@@ -1,5 +1,7 @@
 <?php
 include('config.php');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 if(!isset($_SESSION['username'])) {
   header("Location: ./connecting.php");
@@ -18,7 +20,6 @@ if (isset($_POST['name']) && isset($_POST['radius'])) {
 
   if(isset($_POST['lat']) && isset($_POST['long'])) {
     if (trim($_POST['lat']) == '' || trim($_POST['long']) == '') {
-
     } else {
       $lat = $_POST['lat'];
       $long = $_POST['long'];
@@ -97,6 +98,7 @@ if (isset($_POST['name']) && isset($_POST['radius'])) {
     </div>
   </div>
   <script type="text/javascript" charset="UTF-8">
+
     var marker = null;
     var circle = L.circle([0,0], 390.905);
     var map = L.map('map').setView([0,0], 2);
@@ -107,17 +109,16 @@ if (isset($_POST['name']) && isset($_POST['radius'])) {
     }).addTo(map);
 
     map.on('locationfound', function(e){
-
       if (marker != null){
         marker.setLatLng(e.latlng);
         circle.setLatLng(e.latlng);
-        document.getElementById('lat').value = e.latlng.lat;
-        document.getElementById('long').value = e.latlng.lng;
       } else {
         marker = L.marker(e.latlng).addTo(map);
         circle.addTo(map);
         circle.setLatLng(e.latlng);
       }
+      $("#lat").attr('value', e.latlng.lat);
+      $("#long").attr('value', e.latlng.lng);
     })
 
     function updateSlider(value) {
