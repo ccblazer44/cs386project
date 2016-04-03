@@ -61,6 +61,32 @@
 	    subdomains: ['a', 'b', 'c']
 		}).addTo(map);
 
+		function drawRooms(data) {
+
+			var circle;
+			for (var i = 0; i < data.rooms.length; i++) {
+				console.log(data.rooms[i].latlng);
+				circle = L.circle(data.rooms[i].latlng[0].split(','), data.rooms[i].radius);
+				circle.addTo(map);
+			}
+		}
+
+		$.ajax({
+			url: 'http://localhost:8888/users/api/api.php',
+			dataType: 'json',
+			cache: false,
+			type: 'GET',
+			data: {
+				'Reason': 'explore'
+			},
+			success: function(data) {
+				drawRooms(data);
+			}.bind(this),
+			error: function(xhr, status, err) {
+				console.error('./users/api', status, err.toString());
+			}.bind(this)
+		});
+
 	</script>
 </body>
 </html>
