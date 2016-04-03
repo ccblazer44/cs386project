@@ -5,6 +5,36 @@ if(!isset($_SESSION['username'])) {
   header("Location: ./connecting.php");
 };
 
+$name = null;
+$radius = null;
+if (isset($_POST['name']) && isset($_POST['radius'])) {
+  if (trim($_POST['name']) == '' || trim($_POST['radius']) == '') {
+    $name = "Error";
+    $radius = "Error";
+  } else {
+    $name = $_POST['name'];
+    $radius = $_POST['radius'];
+  }
+
+  if(isset($_POST['lat']) && isset($_POST['long'])) {
+    if (trim($_POST['lat']) == '' || trim($_POST['long']) == '') {
+
+    } else {
+      $lat = $_POST['lat'];
+      $long = $_POST['long'];
+      $req = mysqli_query($GLOBALS["___mysqli_ston"], 'INSERT INTO ROOM (ROOM_NAME, ROOM_RADIUS, ROOM_LON, ROOM_LAT) VALUES ("'.$name.'", "'.$radius.'", "'.$long.'", "'.$lat.'")');
+
+      $id = mysqli_insert_id($GLOBALS["___mysqli_ston"]);
+
+      $url = 'room.php?id='.$id;
+
+      header('Location: '.$url);
+
+    }
+  }
+
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -37,15 +67,16 @@ if(!isset($_SESSION['username'])) {
 		</ul>
 		<a class="toggle-nav" href="#">&#9776;</a>
 	</div>
-
 	<div id="landing" class="container-full">
     <div class="splash-about">
       <div class="splash-about-box">
         <div id="map"></div>
-        <form class="create-room" style="margin: 0; padding: 0; text-align:center; max-width: 100%;" class="create-room" action="index.html" method="post">
+        <form class="create-room" style="margin: 0; padding: 0; text-align:center; max-width: 100%;" class="create-room" action="create.php" method="post">
+          <input type="hidden" id="lat" name="lat" value="">
+          <input type="hidden" id="long" name="long" value="">
           <input style="width: 100%;margin-top: 5px;"type="text" name="name" value="" placeholder="Room Name">
           <p style="float: left; width: 10%; line-height: 50px;">Radius</p>
-          <input style="float:right; width: 85%; height: 50px;" type="range" min='22.86' max='804.67' step='1' oninput="updateSlider(this.value)"/>
+          <input style="float:right; width: 85%; height: 50px;" name="radius" type="range" min='23' max='805' step='1' oninput="updateSlider(this.value)"/>
           <input style="margin-top: -5px;" class="sign-up-button" type="submit" value="Create Room" />
         </form>
       </div>
@@ -76,12 +107,16 @@ if(!isset($_SESSION['username'])) {
     }).addTo(map);
 
     map.on('locationfound', function(e){
+
       if (marker != null){
         marker.setLatLng(e.latlng);
         circle.setLatLng(e.latlng);
+        document.getElementById('lat').value = e.latlng.lat;
+        document.getElementById('long').value = e.latlng.lng;
       } else {
         marker = L.marker(e.latlng).addTo(map);
         circle.addTo(map);
+        circle.setLatLng(e.latlng);
       }
     })
 
