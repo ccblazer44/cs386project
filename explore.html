@@ -64,7 +64,6 @@
 		function drawRooms(data) {
 			var circle;
 			for (var i = 0; i < data.rooms.length; i++) {
-				console.log(data.rooms[i].latlng);
 				circle = L.circle(data.rooms[i].latlng[0].split(','), data.rooms[i].radius);
 				circle.addTo(map);
 			}

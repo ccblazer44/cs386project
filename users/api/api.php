@@ -24,7 +24,17 @@ if (isset($_GET["Reason"])) {
 
       echo json_encode($data);
       break;
+    case 'get_message':
+      $room_id = $_GET['id'];
+      $user_lat = $_GET['lat'];
+      $user_lon = $_GET['lon'];
+      $last_comment = $_GET['last'];
 
+      $req = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT MESSAGE, ID FROM MESSAGES WHERE ID > ".$last);
+
+      
+
+      break;
     default:
       # code...
       break;
