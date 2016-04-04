@@ -4,6 +4,7 @@ include('config.php');
 if (!isset($_GET['id'])) {
   header("Location: search.php");
 }
+
  ?>
 
 <!DOCTYPE html>
