@@ -32,7 +32,7 @@ if (isset($_GET["Reason"])) {
 
       $req = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT MESSAGE, ID FROM MESSAGES WHERE ID > ".$last);
 
-      
+
 
       break;
     default:
