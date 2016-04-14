@@ -139,7 +139,7 @@ $room_id = $_GET['id'];
           li.appendChild(span);
           li.appendChild(document.createTextNode(messages[i].message))
           ul.appendChild(li);
-        //   last = messages[i].id;
+          last = messages[i].id;
           li.parentNode.parentNode.scrollTop = li.offsetTop;
       }
   }
