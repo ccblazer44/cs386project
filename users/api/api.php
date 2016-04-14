@@ -4,8 +4,8 @@ header('content-type: application/json;');
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST");
 
-if (isset($_GET["Reason"])) {
-  $reason = $_GET["Reason"];
+if (isset($_GET["reason"])) {
+  $reason = $_GET["reason"];
 
   switch ($reason) {
     case 'explore':
@@ -24,16 +24,22 @@ if (isset($_GET["Reason"])) {
 
       echo json_encode($data);
       break;
-    case 'get_message':
+    case 'get_messages':
       $room_id = $_GET['id'];
       $user_lat = $_GET['lat'];
       $user_lon = $_GET['lon'];
       $last_comment = $_GET['last'];
+      $data = array("messages" => "");
+      $result = array();
+      $req = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT user, message, id FROM MESSAGES WHERE ID > ".$last_comment);
 
-      $req = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT MESSAGE, ID FROM MESSAGES WHERE ID > ".$last);
+      while ($row = mysqli_fetch_assoc($req)) {
+          $new_row = array("id" => $row['id'],  "user" => $row['user'], "message" => $row['message']);
+          array_push($result, $row);
+      }
 
-
-
+      $data["messages"] = $result;
+      echo json_encode($data);
       break;
     default:
       # code...
