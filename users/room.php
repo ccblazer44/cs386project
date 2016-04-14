@@ -44,18 +44,7 @@ $room_id = $_GET['id'];
     <div id="chatbox">
       <div id="chat">
         <ul id="chat-view">
-          <?php
-          $req = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT user, message FROM MESSAGES");
 
-
-          while ($row = mysqli_fetch_assoc($req)) {
-            ?>
-            <li class="chat-message">
-              <span class="author"><?php echo $row['user'];?>:</span> <?php echo $row["message"]; ?>
-            </li>
-            <?php
-          }
-          ?>
         </ul>
       </div>
       <div id="chatform">
@@ -150,7 +139,8 @@ $room_id = $_GET['id'];
           li.appendChild(span);
           li.appendChild(document.createTextNode(messages[i].message))
           ul.appendChild(li);
-          last = messages[i].id;
+        //   last = messages[i].id;
+          li.parentNode.parentNode.scrollTop = li.offsetTop;
       }
   }
 
