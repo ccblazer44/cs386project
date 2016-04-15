@@ -92,11 +92,16 @@ $room_id = $_GET['id'];
   var lon;
   var id = parseInt(queryDict['id']);
   var last = 0;
-  var interval;
+  var interval = undefined;
+  var first = true;
 
   function updatePosition(position) {
       lat = position.coords.latitude;
       lon = position.coords.longitude;
+      if (first) {
+          first = false;
+          fetch();
+      }
   }
 
   function fetch() {
@@ -114,7 +119,11 @@ $room_id = $_GET['id'];
           },
           success: function(data) {
               drawComments(data);
-              interval = setTimeout(fetch, 1000);
+              if (data["error"] === true){
+                  clearTimeout(interval);
+              } else {
+                  interval = setTimeout(fetch, 1000);
+              }
           },
           error: function(xhr, status, err) {
               console.error(this.url, status, err.toString());
@@ -144,9 +153,6 @@ $room_id = $_GET['id'];
       }
   }
 
-  var timeout = setTimeout(fetch, 1000);
   </script>
-
-  <script src="http://localhost:35729/livereload.js" charset="utf-8"></script>
  </body>
 </html>
