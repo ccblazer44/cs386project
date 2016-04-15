@@ -53,7 +53,7 @@ mail($myemail, $subject, $message);
 mail($email, $subject, $returnmessage);
 
 /* Show success page */
-header('Location: thanks.htm');
+header('Location: index.php');
 exit();
 
 /* Functions*/
