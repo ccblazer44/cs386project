@@ -19,14 +19,12 @@ include('config.php');
   <div id="main-nav">
 
 		<div id="brand-logo">
-			<a href="../index.html"><img src="../img/logo-white.png" /></a>
+			<a href="../index.php"><img src="../img/logo-white.png" /></a>
 		</div>
 		<ul>
-			<li><a href="../about.html">About</a></li>
-			<li><a href="../contact.html">Support</a></li>
-			<li><a href="../explore.html">Explore</a></li>
-			<li class="register"><a href="register.php">Sign Up</a></li>
-			<li class="login"><a href="login.php">Login</a></li>
+            <?php
+            include('nav.php');
+            ?>
 		</ul>
 		<a class="toggle-nav" href="#">&#9776;</a>
 	</div>
