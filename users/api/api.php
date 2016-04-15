@@ -31,7 +31,7 @@ if (isset($_GET["reason"])) {
       $last_comment = $_GET['last'];
       $data = array("messages" => "");
       $result = array();
-      $req = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT user, message, id FROM MESSAGES WHERE ID > ".$last_comment);
+      $req = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT user, message, id FROM MESSAGES WHERE room = ".$room_id." AND ID > ".$last_comment);
 
       while ($row = mysqli_fetch_assoc($req)) {
           $new_row = array("id" => $row['id'],  "user" => $row['user'], "message" => $row['message']);
