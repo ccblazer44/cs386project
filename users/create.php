@@ -125,7 +125,7 @@ if (isset($_POST['name']) && isset($_POST['radius'])) {
 
   </script>
 
-  <script src="http://localhost:35729/livereload.js" charset="utf-8"></script>
+  
 </div>
 </body>
 </html>
