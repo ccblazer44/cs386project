@@ -31,7 +31,9 @@
     <div id="landing" class="container-full">
     <div class="splash-about">
       <div class="splash-about-box">
-
+          <ul id="room-list">
+              
+          </ul>
       </div>
     </div>
     </div>
