@@ -16,7 +16,7 @@ if(!isset($_SESSION['username'])) {
 
   ?>
 <li class="register"><a href="register.php">Sign Up</a></li>
-<li class="login"><a href="connecting.php">Login</a></li>
+<li class="login"><a href="login.php">Login</a></li>
 <?php
 
 } else {

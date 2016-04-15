@@ -115,7 +115,7 @@ else
          if (!isset($_SESSION['username'])) {
 		      ?>
 
-		    <form id="registration" action="connecting.php" method="post">
+		    <form id="registration" action="login.php" method="post">
 		        Log In:<br />
 
 		            <br><input type="text" name="username" placeholder="Username" id="username" value="<?php echo htmlentities($ousername, ENT_QUOTES, 'UTF-8'); ?>" /><br />

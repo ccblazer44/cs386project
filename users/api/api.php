@@ -29,7 +29,7 @@ if (isset($_GET["reason"])) {
   $reason = $_GET["reason"];
 
   switch ($reason) {
-    case 'explore':
+    case 'explore': {
       $req = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT ROOM_ID, ROOM_RADIUS, ROOM_LON, ROOM_LAT FROM ROOM");
       $data = array("rooms" => "");
       $result = array();
@@ -45,7 +45,8 @@ if (isset($_GET["reason"])) {
 
       echo json_encode($data);
       break;
-    case 'get_messages':
+    }
+    case 'get_messages': {
       $room_id = $_GET['id'];
       $user_lat = $_GET['lat'];
       $user_lon = $_GET['lon'];
@@ -74,12 +75,23 @@ if (isset($_GET["reason"])) {
       $data["messages"] = $result;
       echo json_encode($data);
       break;
+    }
+    case 'new_message': {
+        $room_id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
+        $user_lat = filter_var($_GET['lat'], FILTER_SANITIZE_NUMBER_FLOAT);
+        $user_lon = filter_var($_GET['lon'], FILTER_SANITIZE_NUMBER_FLOAT);
+        $message = filter_var($_GET['message'], FILTER_SANITIZE_MAGIC_QUOTES);
+        $user = $_SESSION['username'];
+
+        mysqli_query($GLOBALS["___mysqli_ston"], "INSERT INTO MESSAGES (ROOM, USER, MESSAGE) VALUES ('".$room_id."','".$user."','".$message."')");
+
+        echo json_encode(array("message" => "success"));
+        die();
+    }
     default:
-      # code...
+      echo json_encode(array("error" => "Uhh, why are you here?"));
       break;
   }
-
-
 }
 
 die();

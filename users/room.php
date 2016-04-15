@@ -48,9 +48,9 @@ $room_id = $_GET['id'];
         </ul>
       </div>
       <div id="chatform">
-        <form class="chatform" action="#" method="post">
+        <form class="chatform" action="#" method="get">
           <textarea id="chat-input" name="message" ></textarea>
-          <input id="chat-submit" type="submit">
+          <button id="chat-submit" type="button">Submit</button>
         </form>
       </div>
     </div>
@@ -75,25 +75,53 @@ $room_id = $_GET['id'];
   var queryDict = {};
   location.search.substr(1).split("&").forEach(function(item) {queryDict[item.split("=")[0]] = item.split("=")[1]});
 
-
-  $("#chat-input").keypress(function(e) {
-    if(e.which == 13) {
-      $(this).val("");
-      e.preventDefault();
-    }
-  });
-
-  if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(updatePosition);
-  }
-
-  var url = 'https://cefns.nau.edu/~jk788/chitchat/users/api/api.php';
+  var url = 'http://localhost:8888/users/api/api.php';
   var lat;
   var lon;
   var id = parseInt(queryDict['id']);
   var last = 0;
   var interval = undefined;
   var first = true;
+
+  function submitMessage(text) {
+      $.ajax({
+          url: this.url,
+          dataType: 'json',
+          cache: false,
+          type: 'GET',
+          data: {
+              'reason': 'new_message',
+              'id': this.id,
+              'lat': this.lat,
+              'lon': this.lon,
+              'message': text
+          },
+          success: function(data) {
+              return;
+          },
+          error: function(xhr, status, err) {
+              console.error(this.url, status, err.toString());
+          }
+      });
+  }
+
+  $("#chat-input").keypress(function(e) {
+    if(e.which == 13) {
+      submitMessage($(this).val());
+      $(this).val("");
+      e.preventDefault();
+    }
+  });
+
+  $("#chat-submit").bind("click", function(e) {
+      submitMessage($("#chat-input").val());
+      $("#chat-input").val("");
+      e.preventDefault();
+  });
+
+  if (navigator.geolocation) {
+      navigator.geolocation.watchPosition(updatePosition);
+  }
 
   function updatePosition(position) {
       lat = position.coords.latitude;

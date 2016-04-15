@@ -26,7 +26,7 @@ include('config.php');
 			<li><a href="../contact.html">Support</a></li>
 			<li><a href="../explore.html">Explore</a></li>
 			<li class="register"><a href="register.php">Sign Up</a></li>
-			<li class="login"><a href="connecting.php">Login</a></li>
+			<li class="login"><a href="login.php">Login</a></li>
 		</ul>
 		<a class="toggle-nav" href="#">&#9776;</a>
 	</div>
@@ -76,7 +76,7 @@ include('config.php');
 								$form = false;
 		?>
 		Success!  Now log in.<br />
-		<a href="connecting.php">Log in</a>
+		<a href="login.php">Log in</a>
 		<?php
 							}
 							else

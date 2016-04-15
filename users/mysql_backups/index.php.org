@@ -40,7 +40,7 @@ include('config.php')
         ?>
 
         <a href="messages.php">Inbox  (<?php echo $nb_new_pm; ?> unread)</a><br />
-        <a href="connecting.php">Logout</a>
+        <a href="login.php">Logout</a>
         <?php
         }
         else
@@ -48,7 +48,7 @@ include('config.php')
         ?>
         Don't have an account?    <a href="register.php">   Register</a>
         <p>
-        Already a user?    <a href="connecting.php">   Log In</a>
+        Already a user?    <a href="login.php">   Log In</a>
         <?php
         }
         ?>
