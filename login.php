@@ -74,7 +74,7 @@ else
   <div id="main-nav">
 
 		<div id="brand-logo">
-			<a href="../index.php"><img src="./img/logo-white.png" /></a>
+			<a href=".././index.php"><img src="./img/logo-white.png" /></a>
 		</div>
 		<ul>
       <?php
@@ -94,7 +94,7 @@ else
       		if($loggedout) {
 		    ?>
     		Logged Out<br />
-    		<a href="../index.php">Home</a>
+    		<a href=".././index.php">Home</a>
     		<?php
 		       }
 

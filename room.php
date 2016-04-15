@@ -30,7 +30,7 @@ $room_id = $_GET['id'];
    <div id="main-nav">
 
  		<div id="brand-logo">
- 			<a href="../index.php"><img src="./img/logo-white.png" /></a>
+ 			<a href=".././index.php"><img src="./img/logo-white.png" /></a>
  		</div>
  		<ul>
        <?php
@@ -75,7 +75,7 @@ $room_id = $_GET['id'];
   var queryDict = {};
   location.search.substr(1).split("&").forEach(function(item) {queryDict[item.split("=")[0]] = item.split("=")[1]});
 
-  var url = 'https://cefns.nau.edu/~jk788/chitchat/users/api/api.php';
+  var url = 'https://cefns.nau.edu/~jk788/chitchat/api/api.php';
   var lat;
   var lon;
   var id = parseInt(queryDict['id']);
