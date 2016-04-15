@@ -2,7 +2,7 @@
 include('config.php');
 
 if (!isset($_GET['id'])) {
-  header("Location: search.php");
+  header("Location: join.php");
 }
 
 $room_id = $_GET['id'];
@@ -44,18 +44,7 @@ $room_id = $_GET['id'];
     <div id="chatbox">
       <div id="chat">
         <ul id="chat-view">
-          <?php
-          $req = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT user, message FROM s_chat_messages");
 
-
-          while ($row = mysqli_fetch_assoc($req)) {
-            ?>
-            <li class="chat-message">
-              <span class="author"><?php echo $row['user'];?>:</span> <?php echo $row["message"]; ?>
-            </li>
-            <?php
-          }
-          ?>
         </ul>
       </div>
       <div id="chatform">
@@ -83,14 +72,87 @@ $room_id = $_GET['id'];
 
   <script type="text/javascript">
 
+  var queryDict = {};
+  location.search.substr(1).split("&").forEach(function(item) {queryDict[item.split("=")[0]] = item.split("=")[1]});
+
+
   $("#chat-input").keypress(function(e) {
     if(e.which == 13) {
       $(this).val("");
       e.preventDefault();
     }
   });
-  </script>
 
-  <script src="http://localhost:35729/livereload.js" charset="utf-8"></script>
+  if (navigator.geolocation) {
+      navigator.geolocation.watchPosition(updatePosition);
+  }
+
+  var url = 'https://cefns.nau.edu/~jk788/chitchat/users/api/api.php';
+  var lat;
+  var lon;
+  var id = parseInt(queryDict['id']);
+  var last = 0;
+  var interval = undefined;
+  var first = true;
+
+  function updatePosition(position) {
+      lat = position.coords.latitude;
+      lon = position.coords.longitude;
+      if (first) {
+          first = false;
+          fetch();
+      }
+  }
+
+  function fetch() {
+      $.ajax({
+          url: this.url,
+          dataType: 'json',
+          cache: false,
+          type: 'GET',
+          data: {
+              'reason': 'get_messages',
+              'id': this.id,
+              'lat': this.lat,
+              'lon': this.lon,
+              'last': this.last
+          },
+          success: function(data) {
+              drawComments(data);
+              if (data["error"] === true){
+                  clearTimeout(interval);
+              } else {
+                  interval = setTimeout(fetch, 1000);
+              }
+          },
+          error: function(xhr, status, err) {
+              console.error(this.url, status, err.toString());
+          }
+      });
+  }
+
+  function drawComments(data) {
+      var messages = data['messages'];
+      if (!messages.length) {
+          return;
+      }
+
+      var ul = document.getElementById('chat-view');
+      var li, span;
+      for (var i = 0; i < messages.length; i++){
+          li = document.createElement('li');
+          li.className = "chat-message";
+          span = document.createElement('span');
+          span.className = "author";
+          span.appendChild(document.createTextNode(messages[i].user + ": "));
+          li.appendChild(span);
+          li.appendChild(document.createTextNode(messages[i].message))
+          ul.appendChild(li);
+          last = messages[i].id;
+          li.parentNode.parentNode.scrollTop = li.offsetTop;
+      }
+  }
+
+  </script>
  </body>
 </html>
