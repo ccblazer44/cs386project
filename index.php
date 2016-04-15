@@ -15,7 +15,7 @@
 	<div id="main-nav">
 
 		<div id="brand-logo">
-			<a href="index.php"><img src="./img/logo-white.png" /></a>
+			<a href="./index.php"><img src="./img/logo-white.png" /></a>
 		</div>
 		<ul>
 			<?php

@@ -5,11 +5,11 @@ include('config.php');
 <html>
 <head>
   <title>Chitchat</title>
-	<link rel="stylesheet" href="../css/style.css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="./css/style.css" media="screen" title="no title" charset="utf-8">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-	<script type="text/javascript" src="../js/menu.js"></script>
+	<script type="text/javascript" src="./js/menu.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -19,7 +19,7 @@ include('config.php');
   <div id="main-nav">
 
 		<div id="brand-logo">
-			<a href="../index.php"><img src="../img/logo-white.png" /></a>
+			<a href=".././index.php"><img src="./img/logo-white.png" /></a>
 		</div>
 		<ul>
             <?php
