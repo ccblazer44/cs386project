@@ -24,13 +24,13 @@ html, body {
 	left: 50%;
 	height: 40px;
 	width: 40px;
-	background: url(../img/spinner.png);
+	background: url(./img/spinner.png);
 	animation: spin .75s linear infinite;
 }
 
 #landing {
 	border-top: 5px solid white;
-	background: url(../img/cell-phone-bg.png) no-repeat center center;
+	background: url(./img/cell-phone-bg.png) no-repeat center center;
 	background-size: cover;
 }
 
