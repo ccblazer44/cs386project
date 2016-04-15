@@ -19,7 +19,7 @@
 		</div>
 		<ul>
 			<?php
-			include('./users/nav.php');
+			include('./nav.php');
 			?>
 		</ul>
 		<a class="toggle-nav" href="#">&#9776;</a>
@@ -29,7 +29,7 @@
 		<div class="splash">
 			<h2 class="text-center text-uppercase">Join the conversation</h2>
 			<p class="splash-subtext text-center">Get started now by picking your username!</p>
-			<form id="quick-signup" action="./users/register.php" method="post">
+			<form id="quick-signup" action="./register.php" method="post">
 				<div class="input">
 						<input type="text" class="button" id="email" name="username" placeholder="KobeFan4Life">
 						<input type="submit" class="button" id="submit" value="SIGN UP">
