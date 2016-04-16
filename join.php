@@ -52,6 +52,79 @@
         <p class="text-center"> &copy; Copyright 2016</p>
       </div>
     </div>
+<<<<<<< Updated upstream
     <script src="http://localhost:35729/livereload.js" charset="utf-8"></script>
+=======
+
+
+    <script type="text/javascript">
+
+    var url = 'https://cefns.nau.edu/~jk788/chitchat/api/api.php';
+    var lat;
+    var lon;
+    var first = true;
+
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(updatePosition);
+    }
+
+    function updatePosition(position) {
+        console.log("Hello World");
+        lat = position.coords.latitude;
+        lon = position.coords.longitude;
+        if (first) {
+            first = false;
+            getRooms();
+        }
+    }
+
+    function getRooms() {
+        var x = $.ajax({
+            url: this.url,
+            dataType: 'json',
+            cache: false,
+            type: 'GET',
+            complete: function(){
+              console.log(this.url);
+            },
+            data: {
+                'reason': 'get_rooms',
+                'lat': this.lat,
+                'lon': this.lon
+            },
+            success: function(data) {
+                console.log(data);
+                drawComments(data);
+            },
+            error: function(xhr, status, err) {
+                console.error(this.url, status, err.toString());
+            }
+        });
+        console.log(x);
+    }
+
+
+    function drawComments(data) {
+        var rooms = data['rooms'];
+        if (!rooms.length) {
+            return;
+        }
+
+
+        var ul = document.getElementById('room-list');
+        var li, link;
+        for (var i = 0; i < rooms.length; i++){
+            var link = document.createElement("a");
+            link.setAttribute("href", "https://cefns.nau.edu/~jk788/chitchat/room.php?id=" + rooms[i].id);
+            link.className = "room-title";
+            li = document.createElement('li');
+            li.className = "room-title";
+            link.appendChild(document.createTextNode(rooms[i].name));
+            li.appendChild(link);
+            ul.appendChild(li);
+        }
+    }
+    </script>
+>>>>>>> Stashed changes
 </body>
 </html>
