@@ -116,9 +116,8 @@
         for (var i = 0; i < rooms.length; i++){
             var link = document.createElement("a");
             link.setAttribute("href", "./room.php?id=" + rooms[i].id);
-            link.className = "room-title";
             li = document.createElement('li');
-            li.className = "room-title";
+            li.className = "room";
             link.appendChild(document.createTextNode(rooms[i].name));
             li.appendChild(link);
             ul.appendChild(li);
