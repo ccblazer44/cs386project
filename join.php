@@ -32,9 +32,7 @@
     <div class="splash-about">
       <div class="splash-about-box">
           <ul id="room-list">
-            <li class="room">
-              <span class="room-name">Room Title</span>
-            </li>
+
           </ul>
       </div>
     </div>
