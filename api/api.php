@@ -55,7 +55,7 @@ if (isset($_GET["reason"])) {
       $req = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT ROOM_LON, ROOM_LAT, ROOM_RADIUS FROM ROOM WHERE ROOM_ID = ".$room_id);
       $row = mysqli_fetch_assoc($req);
 
-      if (distanceGeoPoints((float)$user_lat, (float)$user_lon, (float)$row['ROOM_LAT'], (float)$row['ROOM_LON']) > (float)$row['ROOM_RADIUS']) {
+      if (distanceGeoPoints($user_lat, $user_lon, $row['ROOM_LAT'], $row['ROOM_LON']) > $row['ROOM_RADIUS']) {
           $data = array("error" => true, "messages" => "");
           $result = array(array("id" => "",  "user" => "chitchat admin", "message" => "You are out of range of this room..."));
           $data["messages"] = $result;
@@ -91,25 +91,21 @@ if (isset($_GET["reason"])) {
         die();
     }
     case 'get_rooms': {
-        $user_lat = filter_var($_GET['lat'], FILTER_SANITIZE_NUMBER_FLOAT);
-        $user_lon = filter_var($_GET['lon'], FILTER_SANITIZE_NUMBER_FLOAT);
+        $user_lat = $_GET['lat'];
+        $user_lon = $_GET['lon'];
 
         $req = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM ROOM");
+
         $data = array("rooms" => "");
         $result = array();
 
 
         while ($row = mysqli_fetch_assoc($req)) {
-            if (distanceGeoPoints((float)$user_lat, (float)$user_lon, (float)$row["ROOM_LAT"], (float)$row["ROOM_LON"]) < (float)$row['ROOM_RADIUS']) {
-              $newRow = array("id" => (int)$row['ROOM_ID'], "name" => $row['ROOM_NAME'],"radius" => (int)$row['ROOM_RADIUS'], "latlng" => $latlng );
+          if (distanceGeoPoints($user_lat, $user_lon, $row['ROOM_LAT'], $row['ROOM_LON']) < $row['ROOM_RADIUS']) {
+              $newRow = array("id" => $row['ROOM_ID'], "name" => $row['ROOM_NAME'], "radius" => $row['ROOM_RADIUS']);
               array_push($result, $newRow);
             }
         }
-
-        $data["rooms"] = $result;
-
-        echo json_encode($data);
-        die();
 
         $data["rooms"] = $result;
 
