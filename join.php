@@ -32,7 +32,9 @@
     <div class="splash-about">
       <div class="splash-about-box">
           <ul id="room-list">
-              
+            <li class="room">
+              <span class="room-name">Room Title</span>
+            </li>
           </ul>
       </div>
     </div>
@@ -52,5 +54,6 @@
         <p class="text-center"> &copy; Copyright 2016</p>
       </div>
     </div>
+    <script src="http://localhost:35729/livereload.js" charset="utf-8"></script>
 </body>
 </html>
