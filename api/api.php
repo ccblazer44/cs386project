@@ -44,6 +44,7 @@ if (isset($_GET["reason"])) {
       $data["rooms"] = $result;
 
       echo json_encode($data);
+      die();
       break;
     }
     case 'get_messages': {
@@ -74,6 +75,7 @@ if (isset($_GET["reason"])) {
 
       $data["messages"] = $result;
       echo json_encode($data);
+      die();
       break;
     }
     case 'new_message': {
@@ -86,6 +88,32 @@ if (isset($_GET["reason"])) {
         mysqli_query($GLOBALS["___mysqli_ston"], "INSERT INTO MESSAGES (ROOM, USER, MESSAGE) VALUES ('".$room_id."','".$user."','".$message."')");
 
         echo json_encode(array("message" => "success"));
+        die();
+    }
+    case 'get_rooms': {
+        $user_lat = filter_var($_GET['lat'], FILTER_SANITIZE_NUMBER_FLOAT);
+        $user_lon = filter_var($_GET['lon'], FILTER_SANITIZE_NUMBER_FLOAT);
+
+        $req = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM ROOM");
+        $data = array("rooms" => "");
+        $result = array();
+
+
+        while ($row = mysqli_fetch_assoc($req)) {
+            if (distanceGeoPoints((float)$user_lat, (float)$user_lon, (float)$row["ROOM_LAT"], (float)$row["ROOM_LON"]) < (float)$row['ROOM_RADIUS']) {
+              $newRow = array("id" => (int)$row['ROOM_ID'], "name" => $row['ROOM_NAME'],"radius" => (int)$row['ROOM_RADIUS'], "latlng" => $latlng );
+              array_push($result, $newRow);
+            }
+        }
+
+        $data["rooms"] = $result;
+
+        echo json_encode($data);
+        die();
+
+        $data["rooms"] = $result;
+
+        echo json_encode($data);
         die();
     }
     default:
