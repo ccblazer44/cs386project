@@ -115,7 +115,7 @@
         var li, link;
         for (var i = 0; i < rooms.length; i++){
             var link = document.createElement("a");
-            link.setAttribute("href", "https://cefns.nau.edu/~jk788/chitchat/room.php?id=" + rooms[i].id);
+            link.setAttribute("href", "./room.php?id=" + rooms[i].id);
             link.className = "room-title";
             li = document.createElement('li');
             li.className = "room-title";
