@@ -19,7 +19,7 @@
 		</div>
 		<ul>
 			<?php
-			include('./nav.php');
+			include('nav.php');
 			?>
 		</ul>
 		<a class="toggle-nav" href="#">&#9776;</a>
