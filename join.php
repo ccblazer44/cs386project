@@ -52,10 +52,6 @@
         <p class="text-center"> &copy; Copyright 2016</p>
       </div>
     </div>
-<<<<<<< Updated upstream
-    <script src="http://localhost:35729/livereload.js" charset="utf-8"></script>
-=======
-
 
     <script type="text/javascript">
 
@@ -69,7 +65,6 @@
     }
 
     function updatePosition(position) {
-        console.log("Hello World");
         lat = position.coords.latitude;
         lon = position.coords.longitude;
         if (first) {
@@ -79,7 +74,7 @@
     }
 
     function getRooms() {
-        var x = $.ajax({
+        $.ajax({
             url: this.url,
             dataType: 'json',
             cache: false,
@@ -100,7 +95,6 @@
                 console.error(this.url, status, err.toString());
             }
         });
-        console.log(x);
     }
 
 
@@ -124,6 +118,5 @@
         }
     }
     </script>
->>>>>>> Stashed changes
 </body>
 </html>
