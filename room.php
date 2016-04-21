@@ -24,7 +24,7 @@ $room_id = $_GET['id'];
  	<script type="text/javascript" src="./js/menu.js"></script>
  	<link rel="stylesheet" href="./js/leaflet.css" />
  	<script src="./js/leaflet.js"></script>
- 	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
  </head>
 
 
@@ -52,7 +52,7 @@ $room_id = $_GET['id'];
       </div>
       <div id="chatform">
         <form class="chatform" action="#" method="get">
-          <textarea id="chat-input" name="message" ></textarea>
+          <textarea id="chat-input" class="chat-input" name="message" ></textarea>
           <button id="chat-submit" type="button">Submit</button>
         </form>
       </div>
@@ -106,6 +106,7 @@ $room_id = $_GET['id'];
               console.error(this.url, status, err.toString());
           }
       });
+      document.body.scrollTop = 0;
   }
 
   $("#chat-input").keypress(function(e) {
