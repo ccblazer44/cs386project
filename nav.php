@@ -1,6 +1,6 @@
 <?php
 
-include('config.php');
+require_once('config.php');
 
 if (!isset($_SESSION['username'])) {
 
@@ -27,3 +27,5 @@ if(!isset($_SESSION['username'])) {
 <li class="login"><a href="./join.php">Join</a></li>
 <?php
 } ?>
+
+<script src="http://localhost:35729/livereload.js" charset="utf-8"></script>

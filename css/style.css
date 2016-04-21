@@ -6,16 +6,16 @@ html, body {
 }
 
 @-moz-keyframes spin {
-    from { -moz-transform: rotate(0deg); }
-    to { -moz-transform: rotate(360deg); }
+	from { -moz-transform: rotate(0deg); }
+	to { -moz-transform: rotate(360deg); }
 }
 @-webkit-keyframes spin {
-    from { -webkit-transform: rotate(0deg); }
-    to { -webkit-transform: rotate(360deg); }
+	from { -webkit-transform: rotate(0deg); }
+	to { -webkit-transform: rotate(360deg); }
 }
 @keyframes spin {
-    from {transform:rotate(0deg);}
-    to {transform:rotate(360deg);}
+	from {transform:rotate(0deg);}
+	to {transform:rotate(360deg);}
 }
 
 .loading {
@@ -63,8 +63,8 @@ html, body {
 	max-width: 800px;
 	height: 600px;
 	position: absolute;
-  top: 50%;
-  left: 50%;
+	top: 50%;
+	left: 50%;
 	transform: translate(-50%, -50%);
 	border-radius: 5px;
 	padding: 20px;
@@ -77,23 +77,41 @@ html, body {
 }
 
 #room-list {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		overflow-y: scroll;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	background: white;
+	width: 90%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	margin-top: 35px;
+	overflow-y: scroll;
+	border-radius: 10px;
+	background-color: rgba(0,0,0,0.5);
+	height: calc(100% - 70px);
+	max-height: calc(100% - 70px);
 }
 
 
 #room-list .room {
-		font-size: 36px;
-		border-bottom: 1px solid black;
-		width: 100%;
-		height: 75px;
+	padding-left: 10px;
+	font-size: 36px;
+	border-bottom: 1px solid black;
+	width: 100%;
+	height: 75px;
+	line-height: 75px;
+	letter-spacing: 0.05em;
 }
 
-#room-list .room a,
-#room-list .room a:visited {
-	color: black;
+#room-list a .room,
+#room-list a:visited .room {
+	color: white;
+}
+
+#room-list a .room:hover {
+	background-color: rgba(255,255,255,0.25);
 }
 
 #brand-logo {
@@ -231,15 +249,15 @@ html, body {
 	padding-top: 25px;
 	max-width: 75%;
 	width:450px;
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 	margin: 0 auto;
 }
 
 
 .button {
-  height: 44px;
-  border: none;
+	height: 44px;
+	border: none;
 }
 
 #chatbox {
@@ -313,39 +331,39 @@ html, body {
 }
 
 #email {
-  width: 75%;
-  background: #FDFCFB;
-  font-family: inherit;
-  color: #737373;
-  letter-spacing: 1px;
-  text-indent: 5%;
-  border-radius: 5px 0 0 5px;
+	width: 75%;
+	background: #FDFCFB;
+	font-family: inherit;
+	color: #737373;
+	letter-spacing: 1px;
+	text-indent: 5%;
+	border-radius: 5px 0 0 5px;
 }
 
 
 #submit {
-  width: 25%;
-  height: 46px;
-  background: rgba(0, 219, 0, 0.55);
-  font-family: inherit;
-  font-weight: bold;
-  color: white;
-  letter-spacing: 1px;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  transition: background .3s ease-in-out;
+	width: 25%;
+	height: 46px;
+	background: rgba(0, 219, 0, 0.55);
+	font-family: inherit;
+	font-weight: bold;
+	color: white;
+	letter-spacing: 1px;
+	border-radius: 0 5px 5px 0;
+	cursor: pointer;
+	transition: background .3s ease-in-out;
 }
 
 
 #submit:hover {
-  background: rgba(0, 219, 0, 0.85);
+	background: rgba(0, 219, 0, 0.85);
 }
 
 
 input:focus {
-  outline: none;
-  outline: 2px solid rgba(0, 219, 0, 0.85);
-  box-shadow: 0 0 2px #E86C8D;
+	outline: none;
+	outline: 2px solid rgba(0, 219, 0, 0.85);
+	box-shadow: 0 0 2px #E86C8D;
 }
 
 #registration {
@@ -361,7 +379,7 @@ input:focus {
 	letter-spacing: 1px;
 	text-align: left;
 	letter-spacing: 1px;
-  text-indent: 5%;
+	text-indent: 5%;
 }
 
 #registration input:nth-of-type(5) {
@@ -370,29 +388,29 @@ input:focus {
 }
 
 .sign-up-button {
-  position: relative;
-  vertical-align: top;
-  width: 100%;
-  height: 45px;
-  padding: 0;
-  font-size: 22px;
-  color: white;
-  text-align: center;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-  background: rgba(0, 219, 0, 0.55);
-  border: 0;
-  border-bottom: 2px solid #fff;
-  border-radius: 5px;
-  cursor: pointer;
-  -webkit-box-shadow: inset 0 -2px #040;
-  box-shadow: inset 0 -2px #040;
+	position: relative;
+	vertical-align: top;
+	width: 100%;
+	height: 45px;
+	padding: 0;
+	font-size: 22px;
+	color: white;
+	text-align: center;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+	background: rgba(0, 219, 0, 0.55);
+	border: 0;
+	border-bottom: 2px solid #fff;
+	border-radius: 5px;
+	cursor: pointer;
+	-webkit-box-shadow: inset 0 -2px #040;
+	box-shadow: inset 0 -2px #040;
 }
 
 .sign-up-button:active {
-  top: 1px;
-  outline: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+	top: 1px;
+	outline: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
 }
 
 
@@ -424,6 +442,11 @@ Mobile Styling!
 
 	#submit {
 		font-size: 12px;
+	}
+
+
+	#room-list .room {
+		font-size: 18px;
 	}
 
 	.active-page {

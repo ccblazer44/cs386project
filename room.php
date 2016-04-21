@@ -1,9 +1,12 @@
 <?php
-include('config.php');
+require_once('config.php');
 
 if (!isset($_GET['id'])) {
   header("Location: join.php");
 }
+if(!isset($_SESSION['username'])) {
+  header("Location: ./login.php");
+};
 
 $room_id = $_GET['id'];
 
