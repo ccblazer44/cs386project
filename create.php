@@ -1,5 +1,5 @@
 <?php
-include('config.php');
+require_once('config.php');
 
 if(!isset($_SESSION['username'])) {
   header("Location: ./login.php");
@@ -125,7 +125,7 @@ if (isset($_POST['name']) && isset($_POST['radius'])) {
 
   </script>
 
-  
+
 </div>
 </body>
 </html>

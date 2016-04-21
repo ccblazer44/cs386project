@@ -1,3 +1,9 @@
+<?php
+require_once('config.php');
+if(!isset($_SESSION['username'])) {
+  header("Location: ./login.php");
+};
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,13 +35,9 @@
 		<a class="toggle-nav" href="#">&#9776;</a>
 	</div>
     <div id="landing" class="container-full">
-    <div class="splash-about">
-      <div class="splash-about-box">
-          <ul id="room-list">
+      <ul id="room-list">
 
-          </ul>
-      </div>
-    </div>
+      </ul>
     </div>
 
 
@@ -79,16 +81,12 @@
             dataType: 'json',
             cache: false,
             type: 'GET',
-            complete: function(){
-              console.log(this.url);
-            },
             data: {
                 'reason': 'get_rooms',
                 'lat': this.lat,
                 'lon': this.lon
             },
             success: function(data) {
-                console.log(data);
                 drawComments(data);
             },
             error: function(xhr, status, err) {
@@ -112,9 +110,9 @@
             link.setAttribute("href", "./room.php?id=" + rooms[i].id);
             li = document.createElement('li');
             li.className = "room";
-            link.appendChild(document.createTextNode(rooms[i].name));
-            li.appendChild(link);
-            ul.appendChild(li);
+            li.appendChild(document.createTextNode(rooms[i].name));
+            link.appendChild(li);
+            ul.appendChild(link);
         }
     }
     </script>
